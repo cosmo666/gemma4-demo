@@ -107,3 +107,80 @@ class Transaction(Base):
 
     account: Mapped[Account] = relationship(back_populates="transactions")
     source_document: Mapped[Document] = relationship(back_populates="transactions")
+
+
+class CategoryOverride(Base):
+    __tablename__ = "category_overrides"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    match_kind: Mapped[str] = mapped_column(String(32), nullable=False)
+    pattern: Mapped[str] = mapped_column(Text, nullable=False)
+    category: Mapped[str] = mapped_column(String(64), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, server_default=func.now(), nullable=False
+    )
+
+
+class MerchantCanonical(Base):
+    __tablename__ = "merchant_canonical"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    raw_description_pattern: Mapped[str] = mapped_column(Text, nullable=False)
+    canonical_name: Mapped[str] = mapped_column(String(128), nullable=False)
+    category_hint: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, server_default=func.now(), nullable=False
+    )
+
+
+class RecurringSeries(Base):
+    __tablename__ = "recurring_series"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    account_id: Mapped[int] = mapped_column(ForeignKey("accounts.id"), nullable=False)
+    merchant_canonical: Mapped[str] = mapped_column(String(128), nullable=False)
+    category: Mapped[str] = mapped_column(String(64), nullable=False)
+    cadence: Mapped[str] = mapped_column(String(16), nullable=False)
+    typical_amount_paise: Mapped[int] = mapped_column(Integer, nullable=False)
+    typical_day_of_month: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    first_seen: Mapped[date | None] = mapped_column(Date, nullable=True)
+    last_seen: Mapped[date | None] = mapped_column(Date, nullable=True)
+    confidence: Mapped[float] = mapped_column(Float, nullable=False)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, server_default=func.now(), nullable=False
+    )
+
+
+class ConfigRow(Base):
+    __tablename__ = "config"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    age: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    dob: Mapped[date | None] = mapped_column(Date, nullable=True)
+    dependents: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    annual_income_paise: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    one_off_threshold_paise: Mapped[int] = mapped_column(
+        Integer, default=1000000, nullable=False
+    )
+    leak_merchant_count_threshold: Mapped[int] = mapped_column(
+        Integer, default=4, nullable=False
+    )
+    leak_merchant_amount_threshold_paise: Mapped[int] = mapped_column(
+        Integer, default=5000000, nullable=False
+    )
+    anomaly_multiplier: Mapped[float] = mapped_column(Float, default=2.0, nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime, server_default=func.now(), onupdate=func.now(), nullable=False
+    )
+
+
+class AuditLog(Base):
+    __tablename__ = "audit_log"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    ts: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
+    event_type: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    entity: Mapped[str] = mapped_column(String(32), nullable=False)
+    entity_id: Mapped[str] = mapped_column(String(64), nullable=False)
+    payload_json: Mapped[str] = mapped_column(Text, nullable=False)
