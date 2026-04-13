@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="section-header">
+  <h2>Config</h2>
+</div>
+
+<div class="card">
+  <div class="card__header">
+    <div>
+      <div class="card__title">Owner profile</div>
+      <div class="card__subtitle">Used for display; no adequacy checks in v1</div>
+    </div>
+  </div>
+  <div class="empty">
+    <div class="empty__title">Profile editor coming next</div>
+    <div class="empty__body">Age, dependents, annual income, and thresholds will be editable here.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card__header">
+    <div>
+      <div class="card__title">Thresholds</div>
+      <div class="card__subtitle">One-off, leak, anomaly multiplier</div>
+    </div>
+  </div>
+  <div class="empty">
+    <div class="empty__title">No config loaded yet</div>
+  </div>
+</div>
+{% endblock %}

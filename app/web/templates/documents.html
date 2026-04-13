@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="section-header">
+  <h2>Documents</h2>
+</div>
+
+<div class="card">
+  <div class="card__header">
+    <div>
+      <div class="card__title">Coverage map</div>
+      <div class="card__subtitle">Per-account month coverage</div>
+    </div>
+  </div>
+  <div class="empty">
+    <div class="empty__title">No accounts yet</div>
+    <div class="empty__body">Upload a statement to start building your coverage map.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card__header">
+    <div>
+      <div class="card__title">All processed documents</div>
+    </div>
+  </div>
+  <div class="empty">
+    <div class="empty__title">No documents yet</div>
+    <div class="empty__body">Files you process will appear here with their status and counts.</div>
+  </div>
+</div>
+{% endblock %}

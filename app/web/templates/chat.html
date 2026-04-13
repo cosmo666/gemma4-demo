@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="section-header">
+  <h2>Ask anything</h2>
+  <span class="muted" style="font-size:13px;">Text-to-SQL · select-only · read-only connection</span>
+</div>
+
+<div class="card">
+  <div class="empty">
+    <div class="empty__icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div class="empty__title">Chat is offline until ingestion works</div>
+    <div class="empty__body">Once statements are ingested, ask things like "What's my Swiggy total this quarter?" or "Top 5 merchants last month?"</div>
+  </div>
+  <div class="grid grid-cols-1" style="gap: var(--space-2); margin-top: var(--space-5);">
+    <button class="btn btn--ghost" type="button" disabled>What's my burn?</button>
+    <button class="btn btn--ghost" type="button" disabled>Top 5 merchants?</button>
+    <button class="btn btn--ghost" type="button" disabled>Swiggy total this year?</button>
+  </div>
+</div>
+{% endblock %}
