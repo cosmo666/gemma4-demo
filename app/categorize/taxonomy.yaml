@@ -1,0 +1,76 @@
+rules:
+  - pattern: swiggy
+    merchant: Swiggy
+    category: food_delivery
+  - pattern: zomato
+    merchant: Zomato
+    category: food_delivery
+  - pattern: blinkit
+    merchant: Blinkit
+    category: groceries
+  - pattern: zepto
+    merchant: Zepto
+    category: groceries
+  - pattern: bigbasket
+    merchant: BigBasket
+    category: groceries
+  - pattern: dmart
+    merchant: DMart
+    category: groceries
+  - pattern: uber
+    merchant: Uber
+    category: transport
+  - pattern: ola
+    merchant: Ola
+    category: transport
+  - pattern: rapido
+    merchant: Rapido
+    category: transport
+  - pattern: irctc
+    merchant: IRCTC
+    category: travel
+  - pattern: makemytrip
+    merchant: MakeMyTrip
+    category: travel
+  - pattern: bescom
+    merchant: BESCOM
+    category: utilities
+  - pattern: airtel
+    merchant: Airtel
+    category: utilities
+  - pattern: jio
+    merchant: Jio
+    category: utilities
+  - pattern: netflix
+    merchant: Netflix
+    category: subscriptions
+  - pattern: spotify
+    merchant: Spotify
+    category: subscriptions
+  - pattern: amazon prime
+    merchant: Amazon Prime
+    category: subscriptions
+  - pattern: amazon
+    merchant: Amazon
+    category: shopping
+  - pattern: flipkart
+    merchant: Flipkart
+    category: shopping
+  - pattern: myntra
+    merchant: Myntra
+    category: shopping
+  - pattern: apollo
+    merchant: Apollo
+    category: healthcare
+  - pattern: practo
+    merchant: Practo
+    category: healthcare
+  - pattern: lic
+    merchant: LIC
+    category: insurance_premium
+  - pattern: salary
+    merchant: null
+    category: income_salary
+  - pattern: atm
+    merchant: null
+    category: cash_withdrawal
