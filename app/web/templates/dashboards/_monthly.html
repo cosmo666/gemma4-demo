@@ -1,0 +1,69 @@
+<div class="grid grid-cols-4">
+  <div class="card">
+    <div class="kpi__label">Real monthly burn</div>
+    <div class="kpi__value">—</div>
+    <div class="kpi__delta muted">awaiting data</div>
+  </div>
+  <div class="card">
+    <div class="kpi__label">Total spend</div>
+    <div class="kpi__value">—</div>
+    <div class="kpi__delta muted">0 transactions</div>
+  </div>
+  <div class="card">
+    <div class="kpi__label">One-offs excluded</div>
+    <div class="kpi__value">—</div>
+    <div class="kpi__delta muted">0 items</div>
+  </div>
+  <div class="card">
+    <div class="kpi__label">Net position</div>
+    <div class="kpi__value">—</div>
+    <div class="kpi__delta muted">income − expense</div>
+  </div>
+</div>
+
+<div class="grid grid-cols-2" style="margin-top: var(--space-6);">
+  <div class="card">
+    <div class="card__header">
+      <div>
+        <div class="card__title">Category breakdown</div>
+        <div class="card__subtitle">Horizontal bars, direct-labeled</div>
+      </div>
+    </div>
+    <div class="empty" style="min-height:220px;">
+      <div class="empty__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+      </div>
+      <div class="empty__title">No spend to chart yet</div>
+      <div class="empty__body">Ingest a bank statement to see your category breakdown.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card__header">
+      <div>
+        <div class="card__title">Income vs expense</div>
+        <div class="card__subtitle">Bullet chart</div>
+      </div>
+    </div>
+    <div class="empty" style="min-height:220px;">
+      <div class="empty__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <div class="empty__title">Waiting for statements</div>
+      <div class="empty__body">Your net position will appear once income and expenses are recorded.</div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-top: var(--space-6);">
+  <div class="card__header">
+    <div>
+      <div class="card__title">Recent transactions</div>
+      <div class="card__subtitle">Last 50, sorted by date</div>
+    </div>
+  </div>
+  <div class="empty">
+    <div class="empty__title">Nothing here yet</div>
+    <div class="empty__body">Drop a PDF into <code>statements-inbox/</code> or click Upload to get started.</div>
+    <a class="btn btn--accent" href="/review">Upload a statement</a>
+  </div>
+</div>

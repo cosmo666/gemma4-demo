@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="tabs" role="tablist" aria-label="Dashboards">
+  <button class="tab tab--active" role="tab" aria-selected="true" data-tab="monthly">Monthly overview</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="recurring">Recurring vs one-time</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="trends">Trends &amp; leaks</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="anomalies">Anomalies</button>
+</div>
+
+<section data-panel="monthly">{% include "dashboards/_monthly.html" %}</section>
+<section data-panel="recurring" hidden>{% include "dashboards/_recurring.html" %}</section>
+<section data-panel="trends" hidden>{% include "dashboards/_trends.html" %}</section>
+<section data-panel="anomalies" hidden>{% include "dashboards/_anomalies.html" %}</section>
+
+<script>
+  (function () {
+    const tabs = document.querySelectorAll('.tab[data-tab]');
+    const panels = document.querySelectorAll('section[data-panel]');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.toggle('tab--active', t === tab);
+          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
+        const target = tab.dataset.tab;
+        panels.forEach(p => {
+          p.hidden = p.dataset.panel !== target;
+        });
+      });
+    });
+  })();
+</script>
+{% endblock %}
