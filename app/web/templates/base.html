@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }} · Expense Lens</title>
+  <link rel="stylesheet" href="/static/css/tokens.css">
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/layout.css">
+  <link rel="stylesheet" href="/static/css/components.css">
+</head>
+<body>
+  <div class="shell">
+    {% include "_sidebar.html" %}
+    {% include "_topbar.html" %}
+    {% block filterbar %}{% include "_filterbar.html" %}{% endblock %}
+    <main class="shell__main" id="main">
+      <div class="shell__main-inner">
+        {% block main %}{% endblock %}
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/htmx.min.js" defer></script>
+  <script src="/static/js/chart.min.js" defer></script>
+</body>
+</html>
